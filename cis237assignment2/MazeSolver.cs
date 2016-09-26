@@ -19,7 +19,7 @@ namespace cis237assignment2
         /// </summary>
         char[,] maze;
         int xStart;
-        int yStart;
+        int yStart;       
 
         /// <summary>
         /// Default Constuctor to setup a new maze solver.
@@ -41,6 +41,7 @@ namespace cis237assignment2
             this.maze = maze;
             this.xStart = xStart;
             this.yStart = yStart;
+                       
 
             //Do work needed to use mazeTraversal recursive call and solve the maze.
         }
@@ -51,8 +52,40 @@ namespace cis237assignment2
         /// Feel free to change the return type if you like, or pass in parameters that you might need.
         /// This is only a very small starting point.
         /// </summary>
-        private void mazeTraversal()
+        private void mazeTraversal(int xCord, int yCord)
         {
+
+            if (maze[xCord, yCord] != 'X'; || '#'; ||'.')
+            {
+
+            }
+
+            if (maze[xCord-1, yCord] == '.')
+            {
+                maze[xCord - 1, yCord] = 'X';
+                mazeTraversal(xCord -1, yCord);
+                
+            }
+            if (maze[xCord +1, yCord] == '.')
+            {
+                maze[xCord + 1, yCord] = 'X';
+                mazeTraversal(xCord+1, yCord);
+                
+            }
+            if (maze[xCord, yCord - 1] == '.')
+            {
+                maze[xCord, yCord - 1] = 'X';
+                mazeTraversal(xCord, yCord - 1);
+            }
+            if (maze[xCord, yCord + 1] == '.')
+            {
+                maze[xCord, yCord + 1] = 'X';
+                mazeTraversal(xCord, yCord + 1);
+            }
+            
+            }
+
+            
             //Implement maze traversal recursive call
         }
     }

@@ -77,7 +77,7 @@ namespace cis237assignment2
         /// <returns>transposedMaze</returns>
         static char[,] transposeMaze(char[,] mazeToTranspose)
         {
-            //Write code her to create a transposed maze.
+            //Write code here to create a transposed maze.
             return new char[1, 1];
         }
     }
