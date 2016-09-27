@@ -47,7 +47,9 @@ namespace cis237assignment2
             MazeSolver mazeSolver = new MazeSolver();
 
             //Create the second maze by transposing the first maze
-            char[,] maze2 = transposeMaze(maze1);
+            char[,] maze2 = new char[maze1.GetLength(1), maze1.GetLength(0)];
+
+            transposeMaze(maze1, maze2);
 
             /// <summary>
             /// Tell the instance to solve the first maze with the passed maze, and start coordinates.
@@ -75,10 +77,20 @@ namespace cis237assignment2
         /// </summary>
         /// <param name="mazeToTranspose"></param>
         /// <returns>transposedMaze</returns>
-        static char[,] transposeMaze(char[,] mazeToTranspose)
+        static void transposeMaze(char[,] mazeToTranspose, char[,] newMaze)
         {
-            //Write code here to create a transposed maze.
-            return new char[1, 1];
+
+            for (int rows = 0; rows < mazeToTranspose.GetLength(0); rows++)
+            {
+                
+
+                for (int columns = 0; columns < mazeToTranspose.GetLength(1); columns++)
+                {
+                    newMaze[rows, columns] = mazeToTranspose[columns, rows];
+                }
+            }
+                        
+                      
         }
     }
 }

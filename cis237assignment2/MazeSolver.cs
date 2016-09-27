@@ -19,7 +19,8 @@ namespace cis237assignment2
         /// </summary>
         char[,] maze;
         int xStart;
-        int yStart;       
+        int yStart;
+        bool mazeSolved = false;
 
         /// <summary>
         /// Default Constuctor to setup a new maze solver.
@@ -41,8 +42,10 @@ namespace cis237assignment2
             this.maze = maze;
             this.xStart = xStart;
             this.yStart = yStart;
-                       
 
+            mazeTraversal(xStart, yStart);
+
+            mazeSolved = false;
             //Do work needed to use mazeTraversal recursive call and solve the maze.
         }
 
@@ -55,38 +58,73 @@ namespace cis237assignment2
         private void mazeTraversal(int xCord, int yCord)
         {
 
-            if (maze[xCord, yCord] != 'X'; || '#'; ||'.')
+            if (mazeSolved != true)
             {
+                try
+                {
+                    maze[xCord, yCord] = 'X';
+                    PrintMaze();
 
-            }
+                    if (maze[xCord - 1, yCord] == '.')
+                    {
 
-            if (maze[xCord-1, yCord] == '.')
-            {
-                maze[xCord - 1, yCord] = 'X';
-                mazeTraversal(xCord -1, yCord);
-                
-            }
-            if (maze[xCord +1, yCord] == '.')
-            {
-                maze[xCord + 1, yCord] = 'X';
-                mazeTraversal(xCord+1, yCord);
-                
-            }
-            if (maze[xCord, yCord - 1] == '.')
-            {
-                maze[xCord, yCord - 1] = 'X';
-                mazeTraversal(xCord, yCord - 1);
-            }
-            if (maze[xCord, yCord + 1] == '.')
-            {
-                maze[xCord, yCord + 1] = 'X';
-                mazeTraversal(xCord, yCord + 1);
-            }
+                        mazeTraversal(xCord - 1, yCord);
+
+                    }
+                    if (maze[xCord + 1, yCord] == '.')
+                    {
+
+                        mazeTraversal(xCord + 1, yCord);
+
+                    }
+                    if (maze[xCord, yCord - 1] == '.')
+                    {
+
+                        mazeTraversal(xCord, yCord - 1);
+                    }
+                    if (maze[xCord, yCord + 1] == '.')
+                    {
+
+                        mazeTraversal(xCord, yCord + 1);
+                    }
+                    else
+                    {
+                        maze[xCord, yCord] = '0';
+                    }
+
+                }
+                catch
+                {
+
+                    Console.WriteLine("Maze... Solved?");
+                    mazeSolved = true;
+
+
+                }
+            }    
             
-            }
 
             
             //Implement maze traversal recursive call
+        }
+
+        private void PrintMaze()
+        {
+
+            Console.WriteLine();
+
+            for (int rows = 0; rows < maze.GetLength(0); rows++)
+            {
+                Console.WriteLine();
+
+                for (int columns = 0; columns < maze.GetLength(1); columns++)
+                {
+                    Console.Write(maze[rows, columns]);
+                }
+            }
+
+            Console.WriteLine();
+
         }
     }
 }
