@@ -1,4 +1,10 @@
-﻿using System;
+﻿//Jordan Koehler
+//CIS 237 TR 3:30-5:45
+//September 29th 2016
+//I left in most of the pre-baked documentation because I wasn't sure if I should replace it with my own. I did write a bit though.
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -56,6 +62,9 @@ namespace cis237assignment2
             /// </summary>
             mazeSolver.SolveMaze(maze1, X_START, Y_START);
 
+            Console.WriteLine("Hit enter to solve the second maze");
+            Console.ReadLine();
+
             //Solve the transposed maze.
             mazeSolver.SolveMaze(maze2, X_START, Y_START);
 
@@ -77,6 +86,9 @@ namespace cis237assignment2
         /// </summary>
         /// <param name="mazeToTranspose"></param>
         /// <returns>transposedMaze</returns>
+
+            //Alright, I'm going to admit that with the structure you built in I had no idea what to do to transpose the array so I just sort of.. jerry rigged my own method.
+            //Transposes the array by flipping the columns and rows of the first maze.
         static void transposeMaze(char[,] mazeToTranspose, char[,] newMaze)
         {
 

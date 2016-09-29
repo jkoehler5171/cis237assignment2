@@ -1,4 +1,9 @@
-﻿using System;
+﻿//Jordan Koehler
+//CIS 237 TR 3:30-5:45
+//September 29th 2016
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,6 +39,9 @@ namespace cis237assignment2
         /// Feel free to change the return type, or add more parameters if you like, but it can be done
         /// exactly as it is here without adding anything other than code in the body.
         /// </summary>
+
+        //This method pretty much... just calls the recursive maze transversal method. It's also what we pass our info into to begin with
+
         public void SolveMaze(char[,] maze, int xStart, int yStart)
         {
             //Assign passed in variables to the class level ones. It was not done in the constuctor so that
@@ -55,6 +63,9 @@ namespace cis237assignment2
         /// Feel free to change the return type if you like, or pass in parameters that you might need.
         /// This is only a very small starting point.
         /// </summary>
+
+            //Ok, this is the method that calls itself over and over and over again to actually solve the maze. I'll admit the "Win Condition" I set up is a bit... silly? but it does work.
+
         private void mazeTraversal(int xCord, int yCord)
         {
 
@@ -105,9 +116,11 @@ namespace cis237assignment2
             
 
             
-            //Implement maze traversal recursive call
+           
         }
 
+
+        //Prints the maze after each step so that we can check it's progress.
         private void PrintMaze()
         {
 
