@@ -98,9 +98,11 @@ namespace cis237assignment2
 
                         mazeTraversal(xCord, yCord + 1);
                     }
-                    else
+                    if (mazeSolved != true)
                     {
+                        
                         maze[xCord, yCord] = '0';
+                        PrintMaze();
                     }
 
                 }
